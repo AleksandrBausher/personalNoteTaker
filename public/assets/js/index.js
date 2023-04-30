@@ -41,7 +41,7 @@ const saveNote = (note) =>
     },
     body: JSON.stringify(note),
   });
-
+// deleting notes by id function
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
     method: 'DELETE',
@@ -52,7 +52,6 @@ const deleteNote = (id) =>
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
-
   if (activeNote.id) {
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
@@ -68,6 +67,7 @@ const renderActiveNote = () => {
 
 const handleNoteSave = () => {
   const newNote = {
+    id: Math.random().toString(16).slice(2),
     title: noteTitle.value,
     text: noteText.value,
   };
@@ -159,6 +159,8 @@ const renderNoteList = async (notes) => {
   }
 
   jsonNotes.forEach((note) => {
+    
+
     const li = createLi(note.title);
     li.dataset.note = JSON.stringify(note);
 
