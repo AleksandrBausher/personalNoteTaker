@@ -1,4 +1,4 @@
-# My First Quiz
+# Personal Note Taker
 
 ## Description
 
